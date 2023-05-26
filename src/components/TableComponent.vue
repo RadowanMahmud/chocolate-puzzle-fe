@@ -34,11 +34,17 @@
         </q-tr>
       </template>
     </q-table>
+    <div class="flex flex-center" style="margin-top: 10px">
+      <q-btn unelevated rounded color="primary">
+        <router-link to="/output">Go to Home</router-link>
+      </q-btn>
+    </div>
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
+import { mapMutations } from "vuex";
 
 export default {
   name: "TableComponent",
@@ -57,6 +63,7 @@ export default {
     };
   },
   methods: {
+    ...mapMutations(['setInputData']),
     onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length)
@@ -84,7 +91,7 @@ export default {
           type: data[3]
         });
       }
-      console.log(this.rows);
+      this.setInputData(this.rows);
     }
   }
 };
