@@ -1,16 +1,16 @@
 <template>
   <q-page class="flex flex-center">
-   <table-component></table-component>
+   <InputComponent></InputComponent>
   </q-page>
 </template>
 
 <script>
-import TableComponent from "components/TableComponent";
+import InputComponent from "components/InputComponent";
 
 export default {
   name: "IndexPage",
   components: {
-    TableComponent
+    InputComponent
   }
 };
 </script>

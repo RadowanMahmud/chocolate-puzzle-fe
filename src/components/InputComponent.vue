@@ -12,7 +12,7 @@
     </div>
     <q-table
       class="my-sticky-header-table"
-      title="Selected CSV File"
+      title="Input Data"
       :rows="rows"
       :columns="columns"
       row-key="cash"
@@ -36,7 +36,7 @@
     </q-table>
     <div class="flex flex-center" style="margin-top: 10px">
       <q-btn unelevated rounded color="primary">
-        <router-link to="/output">Go to Home</router-link>
+        <router-link to="/output" style="color: white">Calculate Results</router-link>
       </q-btn>
     </div>
   </div>
@@ -47,7 +47,9 @@ import { ref } from "vue";
 import { mapMutations } from "vuex";
 
 export default {
-  name: "TableComponent",
+  name: "InputComponent",
+  components: {
+  },
   data() {
     return {
       filter: ref(""),
@@ -63,7 +65,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(['setInputData']),
+    ...mapMutations(["setInputData"]),
     onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length)
